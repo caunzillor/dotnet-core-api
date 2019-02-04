@@ -19,5 +19,5 @@ steps:
 # some comment
 - script: |
     docker build -f Dockerfile -t $(imageName) .
-    docker login -u $(dockerId) -p $(pswd) docker-registry.grenzebach
+    docker login -u $(dockerId) -p $(pswd) 104.214.239.25:443
     docker push $(imageName)
