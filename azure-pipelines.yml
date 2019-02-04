@@ -17,7 +17,14 @@ steps:
 #    mkdir -p /etc/docker/certs.d/104.214.239.25:443
 #    echo -n | openssl s_client -connect 104.214.239.25:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/docker/certs.d/104.214.239.25:443/registry.crt
 # some comment
-- script: |
-    docker build -f Dockerfile -t $(imageName) .
-    docker login -u $(dockerId) -p $(pswd) 104.214.239.25:443
-    docker push $(imageName)
+#- script: |
+#    docker build -f Dockerfile -t $(imageName) .
+#    docker login -u $(dockerId) -p $(pswd) 104.214.239.25:443
+#    docker push $(imageName)
+
+- task: Docker@1
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: docker-registry-grenzebach
+    command: login
