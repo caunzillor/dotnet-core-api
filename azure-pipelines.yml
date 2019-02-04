@@ -15,7 +15,8 @@ variables:
 steps:
 - bash: |
     mkdir -p /etc/docker/certs.d/104.214.239.25:443
-echo -n | openssl s_client -connect 104.214.239.25:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/docker/certs.d/104.214.239.25:443/registry.crt
+    echo -n | openssl s_client -connect 104.214.239.25:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/docker/certs.d/104.214.239.25:443/registry.crt
+# some comment
 
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
