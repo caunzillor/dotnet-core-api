@@ -9,4 +9,4 @@ FROM microsoft/dotnet:2.2.0-aspnetcore-runtime
 WORKDIR /app
 COPY --from=build-env /build/out ./
 EXPOSE 80
-ENTRYPOINT ["dotnet", "dotnet-core-api.dll"]
+ENTRYPOINT ["dotnet", "TodoApi.dll"]
