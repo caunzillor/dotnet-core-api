@@ -23,8 +23,25 @@ steps:
 #    docker push $(imageName)
 
 - task: Docker@1
+  displayName: Build image
+  inputs:
+    command: build
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: docker-registry-grenzebach
+    dockerFile: Dockerfile
+    imageName: $(imageName)
+
+- task: Docker@1
   displayName: Container registry login
   inputs:
     containerregistrytype: Container Registry
     dockerRegistryEndpoint: docker-registry-grenzebach
     command: login
+
+- task: Docker@1
+  displayName: Push image
+  inputs:
+    command: push
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: docker-registry-grenzebach
+    imageName: $(imageName)
