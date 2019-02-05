@@ -9,28 +9,20 @@ trigger:
 variables:
   imageName: 'docker-registry.grenzebach.com/dotnet-core-api:$(build.buildId)'
 
-# Repo: Contoso/WindowsProduct
-# File: azure-pipelines.yml
-#resources:
-#  repositories:
-#    - repository: templates
-#      type: github
-#      name: schmidtjohannes/azure-devops-build-templates
-#      endpoint: schmidtjohannes
+# include template repo
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: schmidtjohannes/azure-devops-build-templates
+      endpoint: schmidtjohannes
 
-#jobs:
-#- template: docker.yml@templates  # Template reference
-#  parameters:
-#    imageName: $(imageName)
-
+jobs:
+- template: docker.yml@templates  # Template reference
+  parameters:
+    imageName: $(imageName)
 
 
-steps:
-- bash: |
-    cat > DockerfileTest << EOF
-    FROM bla
-    EOF
-- script: cat DockerfileTest
 
 #steps:
 #- bash: |
