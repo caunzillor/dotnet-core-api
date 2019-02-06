@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-  imageName: 'docker-registry.grenzebach.com/dotnet-core-api:$(build.buildId)'
+  imageName: 'schmidtjohannes/dotnet-core-api:$(build.buildId)'
 
 # include template repo
 resources:
