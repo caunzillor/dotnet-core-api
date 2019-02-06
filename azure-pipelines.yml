@@ -22,39 +22,3 @@ jobs:
   parameters:
     imageName: $(imageName)
     serviceName: TodoApi
-
-
-
-#steps:
-#- bash: |
-#    mkdir -p /etc/docker/certs.d/104.214.239.25:443
-#    echo -n | openssl s_client -connect 104.214.239.25:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/docker/certs.d/104.214.239.25:443/registry.crt
-# some comment
-#- script: |
-#    docker build -f Dockerfile -t $(imageName) .
-#    docker login -u $(dockerId) -p $(pswd) 104.214.239.25:443
-#    docker push $(imageName)
-
-#- task: Docker@1
-#  displayName: Build image
-#  inputs:
-#    command: build
-#    containerregistrytype: Container Registry
-#    dockerRegistryEndpoint: docker-registry-grenzebach
-#    dockerFile: Dockerfile
-#    imageName: $(imageName)
-
-#- task: Docker@1
-#  displayName: Container registry login
-#  inputs:
-#    containerregistrytype: Container Registry
-#    dockerRegistryEndpoint: docker-registry-grenzebach
-#    command: login
-
-#- task: Docker@1
-#  displayName: Push image
-#  inputs:
-#    command: push
-#    containerregistrytype: Container Registry
-#    dockerRegistryEndpoint: docker-registry-grenzebach
-#    imageName: $(imageName)
