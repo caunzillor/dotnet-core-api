@@ -21,4 +21,4 @@ jobs:
 - template: docker.yml@templates  # Template reference
   parameters:
     imageName: $(imageName)
-    serviceName: TodoApi
+    serviceName: todo-api
